@@ -27,31 +27,3 @@ exports[`snaptest for Card 1`] = `
   </div>
 </div>
 `;
-
-exports[`works when you click on the both arrows 1`] = `
-<div>
-  <div
-    class="Card"
-  >
-    <h4
-      class="Card-title"
-    >
-      Photo by Richard Pasquarella on Unsplash
-    </h4>
-    <img
-      alt="Photo by Richard Pasquarella on Unsplash"
-      class="Card-image"
-      src="image1"
-    />
-    <small
-      class="Card-small"
-    >
-      Image 
-      0
-       of 
-      3
-      .
-    </small>
-  </div>
-</div>
-`;

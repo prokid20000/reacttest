@@ -7,12 +7,13 @@ import TEST_IMAGES from "./_testCommon.js";
 it("renders without crashing", function () {
   // this is a low-value test, but better than nothing
   render(<Carousel photos= {[{
-    src: "https://ac-p.namu.la/20211130s1/31564bce9a769354f0f0131198b7217549092d464ae5b117aa26935d55dec7fe.png?type=orig",
+    src: "www.google.com",
     caption: "Photo by Richard Pasquarella on Unsplash"
   }]} title= "paimon" />);
 });
 
-it("works when you click on the both arrows", function() {
+//testing on left arrow
+it("works when you click on the right arrow", function() {
   const { container } = render(
     <Carousel
       photos={TEST_IMAGES}
@@ -43,8 +44,23 @@ it("works when you click on the both arrows", function() {
     container.querySelector('img[alt="testing image 2"]')
   ).toBeInTheDocument();
 
-  //move backward in the carousel
+});
+
+//testing on right arrow
+it("works when you click on the left arrow", function() {
+  const { container } = render(
+    <Carousel
+      photos={TEST_IMAGES}
+      title="images for testing"
+    />
+  );
+
+  const rightArrow = container.querySelector(".fa-chevron-circle-right");
+  // move forward in the carousel
+  fireEvent.click(rightArrow);
+
   const leftArrow = container.querySelector(".fa-chevron-circle-left");
+  //move backward in the carousel
   fireEvent.click(leftArrow);
 
   //expect the first image to show, but not the third
@@ -64,10 +80,8 @@ it("hide left arrow when on the first image", function() {
     />
   );
 
-  // move forward in the carousel
   const rightArrow = container.querySelector(".fa-chevron-circle-right");
 
-  //move backward in the carousel
   const leftArrow = container.querySelector(".fa-chevron-circle-left");
 
   expect(leftArrow).toHaveClass("hidden");
@@ -82,12 +96,11 @@ it("hide right arrow when on the last image", function() {
     />
   );
 
-  // move forward in the carousel
   const rightArrow = container.querySelector(".fa-chevron-circle-right");
 
-  //move backward in the carousel
   const leftArrow = container.querySelector(".fa-chevron-circle-left");
 
+  // move forward in the carousel
   fireEvent.click(rightArrow);
   fireEvent.click(rightArrow);
 

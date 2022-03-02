@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`works when you click on the both arrows 1`] = `
+exports[`works when you click on the right arrow 1`] = `
 <div>
   <div
     class="Carousel"
