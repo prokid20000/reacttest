@@ -30,12 +30,16 @@ import Card from "./Card";
     setCurrCardIdx(currCardIdx - 1);
   }
 
+  //determine hidden class based on currCardIdx
+  const leftHidden = currCardIdx === 0 ? 'hidden' : '';
+  const rightHidden = currCardIdx === (total - 1) ? 'hidden' : '';
+
   return (
     <div className="Carousel">
       <h1>{title}</h1>
       <div className="Carousel-main">
         <i
-          className="fas fa-chevron-circle-left fa-2x"
+          className={`fas fa-chevron-circle-left fa-2x ${leftHidden}`}
           onClick={goBackward}
         />
         <Card
@@ -45,7 +49,7 @@ import Card from "./Card";
           totalNum={total}
         />
         <i
-          className="fas fa-chevron-circle-right fa-2x"
+          className={`fas fa-chevron-circle-right fa-2x ${rightHidden}`}
           onClick={goForward}
         />
       </div>
